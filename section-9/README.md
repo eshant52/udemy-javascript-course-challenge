@@ -1,4 +1,4 @@
-# Data structure, modern operators and strings
+# Section 9: Data structure, modern operators and strings
 
 ## Challenge 1
 
