@@ -1,28 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Question 1</title>
-        <style>
-            * {
-                box-sizing: border-box;
-                background-color:rgb(152, 134, 80);
-                font-family: sans-serif;
-            }
-            .container {
-                display: flex;
-                justify-content: center;
-                text-align: center;
-                padding-top: 300px;
-            }
-            h1 {
-                color: rgb(255, 255, 255);
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Data Structures and Modern Operators</h1>
-        </div>
-        <script src="./index.js"></script>
-    </body>
+
+<head>
+    <title>Question 1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            background-color: rgb(152, 134, 80);
+            font-family: sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            padding-top: 300px;
+        }
+
+        h1 {
+            color: rgb(255, 255, 255);
+        }
+
+        .input_container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .input {
+            background-color: aliceblue;
+        }
+        #convert {
+            margin-left: 10px;
+            background-color: rgb(187, 65, 65);
+            color: aliceblue;
+            border-radius: 10px;
+            padding: 10px 30px;
+            border-width: 1px;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Data Structures and Modern Operators</h1>
+    </div>
+    <div class="input_container"><textarea class="input" cols="40" rows="9"> </textarea> <button id="convert">convert</button></div>
+</body>
+<script src="./index.js"></script>
+
 </html>
