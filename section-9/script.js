@@ -178,7 +178,29 @@ console.log("Coding challenge 4");
 ///////////////////////////////////////
 // Coding Challenge #4
 
+const underScoreToCameleCase = function (str) {
+  // separating the string into sub string by deliminating underscore '_' and storing them into an array called separate
+  const separate = str.split('_');
+  
+  // convert first letter of each sub string of separate array except first substring
+  for (let [idx, substr] of separate.entries()) {
+    if(idx===0) continue;
+    separate[idx] = substr[0].toUpperCase() + substr.slice(1);
+  }
+
+  // joining the string to form a string and returning the final string output
+  return separate.join('');
+}
+
 document.querySelector("#convert").addEventListener('click', function () {
   const text = document.querySelector('.input').value;
-  console.log(text);
+  const convert = text.split('\n');
+  
+  for (let [idx, element] of convert.entries()) {
+    convert[idx] = underScoreToCameleCase(element.trim().toLowerCase());
+  }
+
+  for (let [idx, element] of convert.entries()) {
+    console.log(`${element.padEnd(25, ' ')}${'✅'.repeat(idx+1)}`);
+  }
 });
