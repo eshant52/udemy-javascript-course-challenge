@@ -64,7 +64,7 @@ const inputClosePin = document.querySelector(".form__input--pin");
 const displayMovements = function (movements, doSort = false) {
   containerMovements.innerHTML = "";
 
-  const movs = doSort ? movements.slice().sort((a, b) => a-b) : movements;
+  const movs = doSort ? movements.slice().sort((a, b) => a - b) : movements;
 
   movs.forEach(function (tran) {
     const transaction_type = tran > 0 ? "deposit" : "withdrawal";
@@ -134,8 +134,8 @@ btnLogin.addEventListener("click", function (e) {
   // prevent form from submiting
   e.preventDefault();
 
-  const username = (inputLoginUsername.value = "js");
-  const pin = (inputLoginPin.value = "1111");
+  const username = inputLoginUsername.value;
+  const pin = inputLoginPin.value;
 
   currentAccount = accounts.find((acc) => acc.username === username);
   console.log(username + " " + pin);
@@ -179,11 +179,15 @@ btnTransfer.addEventListener("click", function (e) {
 });
 
 // alocating loan event
-btnLoan.addEventListener('click', function(e) {
+btnLoan.addEventListener("click", function (e) {
   e.preventDefault();
   const amount = Number(inputLoanAmount.value);
-  
-  if (!isNaN(amount) && amount>0 && currentAccount.movements.some(mov => mov >= amount*0.1)) {
+
+  if (
+    !isNaN(amount) &&
+    amount > 0 &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
     // add amount to movments
     currentAccount.movements.push(amount);
 
@@ -204,20 +208,20 @@ btnClose.addEventListener("click", function (e) {
     username === currentAccount.username &&
     pin === currentAccount.pin
   ) {
-    const idx = accounts.findIndex(acc => acc.username === username);
+    const idx = accounts.findIndex((acc) => acc.username === username);
     console.log(idx);
 
     // delete account
     accounts.splice(idx, 1);
-    
+
     // hide ui
-    containerApp.style.opacity = 0; 
+    containerApp.style.opacity = 0;
   }
 });
 
 // Sorting movement
 let doSort = true;
-btnSort.addEventListener("click", function(e) {
+btnSort.addEventListener("click", function (e) {
   displayMovements(currentAccount.movements, !doSort);
   doSort = !doSort;
 });
